@@ -10,7 +10,9 @@ vagrant up --provision
 vagrant ssh
 Go to https://bitwarden.com/host/  on your local machine browser or any browser on mobile
 Enter your email ex. iowngqhc@duck.com, copy id and key (will be required after executing the next command)
-sudo bash ./bitwarden.sh install
+INSTALLATION ID: 7a73b892-baef-4fb2-80dd-ae64001ac5be
+INSTALLATION KEY: Bs96T7skwzb0HZ3ZtbgD
+sudo bash bitwarden.sh install
 Enter domain name for your bitwarden: (just press enter, don't type anything)
 Enter database name for your Bitwarden instance: (type "vault" without inverted commas)
 Do you have ssl certificate? = n
@@ -22,10 +24,16 @@ Remove port number from https:
 set ssl flag to false
 save
 cd
-sudo bash ./bitwarden.sh updatedb
-sudo bash ./bitwarden.sh update
-sudo bash ./bitwarden.sh rebuild
-sudo bash ./bitwarden.sh start
+#sudo bash bitwarden.sh updatedb
+sudo bash bitwarden.sh update
+sudo bash bitwarden.sh rebuild
+#sudo bash bitwarden.sh start
+cd bwdata/env
+sudo vim global.override.env
+(Use values from gmail smtp)
+globalSettings__mail__smtp__host=<placeholder> globalSettings__mail__smtp__port=<placeholder> globalSettings__mail__smtp__ssl=<placeholder> globalSettings__mail__smtp__username=<placeholder> globalSettings__mail__smtp__password=<placeholder>
+(save)
+sudo bash bitwarden.sh restart
 (Give sometime to load)
 Once it says bitwarden has started, go to your local machine, open any browser and open the following link:
 http://127.0.0.1:4567

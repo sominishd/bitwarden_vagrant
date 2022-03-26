@@ -14,4 +14,4 @@
 #curl -Lso bitwarden.sh https://go.btwrdn.co/bw-sh
 #sudo chmod 700 bitwarden.sh
 #sudo bash bitwarden.sh install
-sudo bash ./bitwarden.sh start
+sudo bash bitwarden.sh start
